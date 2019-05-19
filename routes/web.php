@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,28 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Route::prefix('/admin')->group(['middleware'=>'auth'],function (){
+//    Route::get('/post/create',[
+//        'uses'=> 'PostController@create',
+//        'as'=>'post.create'
+//    ]);
+//    Route::post('/post/store',[
+//        'uses'=>'PostController@store',
+//        'as'=>'post.store'
+//    ]);
+//});
+Route::prefix('/admin')->middleware('auth')->group(function (){
+    Route::get('/post/create',[
+        'uses'=> 'PostController@create',
+        'as'=>'post.create'
+    ]);
+    Route::post('/post/store',[
+        'uses'=>'PostController@store',
+        'as'=>'post.store'
+    ]);
 });
