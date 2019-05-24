@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all();
+        return view('admin.category.index')->with('category',$category);
     }
 
     /**
@@ -23,26 +25,24 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-
         $this->validate($request,[
-            'title'=>'required',
-            'featured'=>'required|image',
-            'content'=>'required'
+           'name'=>'required'
         ]);
-                dd($request->all());
-
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->back()->with('success','Category Added Successfully');
     }
 
     /**
@@ -64,7 +64,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+       $category = Category::find($id);
+        return view('admin.category.edit')->with('category',$category);
     }
 
     /**
@@ -75,8 +76,16 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('category.home')->with('success','Category Update successfully');
+
     }
 
     /**
@@ -87,6 +96,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $category= Category::find($id);
+       $category->delete();
+       return redirect()->back()->with('success','Category Delete Successful');
     }
 }

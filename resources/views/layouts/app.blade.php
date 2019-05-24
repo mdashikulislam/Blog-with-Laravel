@@ -91,6 +91,14 @@
 
                                     <a href="{{route('post.create')}}" class="btn btn-danger">Create new Post</a>
                                 </li>
+                                <li class="list-group-item">
+
+                                    <a href="{{route('category.create')}}" class="btn btn-warning">Create new Category</a>
+                                </li>
+                                <li class="list-group-item">
+
+                                    <a href="{{route('category.home')}}" class="btn btn-primary">View All Category</a>
+                                </li>
                             </ul>
                         </div>
                     @endif
@@ -102,7 +110,11 @@
             </div>
     </main>
     </div>
-{{-- <script src="{{asset('front/jquery-3.4.1.min.js')}}"></script>
-<script src="{{asset('front/bootstrap.js')}}"></script> --}}
+{{-- <script src="{{asset('front/jquery-3.4.1.min.js')}}"></script>--}}
+{{--<script src="{{asset('front/bootstrap.js')}}"></script>--}}
+{{--    <script src="{{asset('bootbox/bootbox.js')}}"></script>--}}
+{{--    <script src="{{asset('bootbox/bootbox.locales.min.js')}}"></script>--}}
+
+    @yield('js')
 </body>
 </html>
