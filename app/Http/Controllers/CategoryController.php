@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index')->with('category',$category);
+        return view('admin.category.index')->with('categorys',$category);
     }
 
     /**
@@ -42,7 +42,8 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->save();
-        return redirect()->back()->with('success','Category Added Successfully');
+
+        return redirect()->route('category.home')->with('success','Category Added Successfully');
     }
 
     /**

@@ -6,11 +6,12 @@
         </div>
         <div class="card-body">
             @include('inc.message')
-            <table class="table table-bordered">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Action</th>
+                    <th>Editing</th>
+                    <th>Deleting</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,9 @@
                         <td>{{$result->name}}</td>
                         <td>
                             <a href="{{route('category.edit',['id'=> $result->id])}}" class="btn btn-info">Edit</a>
+
+                        </td>
+                        <td>
                             <a href="{{route('category.delete',['id'=>$result->id])}}" class="btn badge-danger msg">Delete</a>
                         </td>
                     </tr>

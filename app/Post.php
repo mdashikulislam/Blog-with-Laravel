@@ -10,4 +10,7 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    protected $fillable=[
+        'title','content','category_id','featured'
+    ];
 }

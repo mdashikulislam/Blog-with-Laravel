@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 {{-- <link rel="stylesheet" href="{{asset('front/bootstrap.css')}}">
 <link rel="stylesheet" href="{{asset('front/bootstrap-theme.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('toastr/toastr.css')}}">
     @yield('css')
 </head>
 <body>
@@ -93,6 +94,10 @@
                                 </li>
                                 <li class="list-group-item">
 
+                                    <a href="" class="btn btn-dark">View All Post</a>
+                                </li>
+                                <li class="list-group-item">
+
                                     <a href="{{route('category.create')}}" class="btn btn-warning">Create new Category</a>
                                 </li>
                                 <li class="list-group-item">
@@ -115,6 +120,12 @@
 {{--    <script src="{{asset('bootbox/bootbox.js')}}"></script>--}}
 {{--    <script src="{{asset('bootbox/bootbox.locales.min.js')}}"></script>--}}
 
+{{--    <script src="{{asset('toastr/toastr.js')}}"></script>--}}
+{{--    <script>--}}
+{{--        @if(Session::has('success'))--}}
+{{--            toastr.success("{{Session::get('success')}}");--}}
+{{--            @endif--}}
+{{--    </script>--}}
     @yield('js')
 </body>
 </html>
