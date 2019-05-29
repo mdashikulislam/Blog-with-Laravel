@@ -98,6 +98,10 @@
                                 </li>
                                 <li class="list-group-item">
 
+                                    <a href="{{route('post.trash')}}" class="btn btn-warning" style="background: #663300;border-color:#663300;color: #fff; ">Trash Post</a>
+                                </li>
+                                <li class="list-group-item">
+
                                     <a href="{{route('category.create')}}" class="btn btn-warning">Create new Category</a>
                                 </li>
                                 <li class="list-group-item">

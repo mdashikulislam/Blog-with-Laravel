@@ -34,6 +34,18 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         'uses'=>'PostController@index',
         'as'=>'post.home'
     ]);
+    Route::get('/post/trash',[
+        'uses'=>'PostController@trash',
+        'as'=>'post.trash'
+    ]);
+    Route::get('/post/kill/{id}',[
+        'uses'=>'PostController@kill',
+        'as'=>'post.kill'
+    ]);
+    Route::get('/post/restore/{id}',[
+        'uses'=>'PostController@restore',
+        'as'=>'post.restore'
+    ]);
     Route::get('/post/delete/{id}',[
         'uses'=>'PostController@destroy',
         'as'=>'post.delete'
