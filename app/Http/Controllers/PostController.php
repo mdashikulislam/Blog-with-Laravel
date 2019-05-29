@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('admin.posts.index')->with('posts',$posts);
     }
 
     /**
@@ -25,7 +26,14 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create')->with('categorys',Category::all());
+        $category = Category::all();
+        if ($category->count() == 0){
+
+            return redirect()->route('category.create')->with('success','Make a Category First');
+        }else{
+            return view('admin.posts.create')->with('categorys',Category::all());
+        }
+
     }
 
     /**
@@ -53,10 +61,11 @@ class PostController extends Controller
             'featured'=>'upload/posts/'.$featured_new_name,
             'category_id'=>$request->category,
             'content'=> $request->contents,
+            'slug'=>str_slug($request->title)
 
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Post Create Successfully');
 
     }
 

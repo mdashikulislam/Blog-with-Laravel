@@ -94,7 +94,7 @@
                                 </li>
                                 <li class="list-group-item">
 
-                                    <a href="" class="btn btn-dark">View All Post</a>
+                                    <a href="{{route('post.home')}}" class="btn btn-dark">View All Post</a>
                                 </li>
                                 <li class="list-group-item">
 

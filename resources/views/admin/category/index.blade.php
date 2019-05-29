@@ -15,7 +15,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($category as $result)
+                @if($categorys->count() > 0)
+                @foreach($categorys as $result)
                     <tr>
                         <td>{{$result->name}}</td>
                         <td>
@@ -27,6 +28,7 @@
                         </td>
                     </tr>
                 @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
