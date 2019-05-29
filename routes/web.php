@@ -34,6 +34,10 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         'uses'=>'PostController@index',
         'as'=>'post.home'
     ]);
+    Route::get('/post/delete/{id}',[
+        'uses'=>'PostController@destroy',
+        'as'=>'post.delete'
+    ]);
     Route::get('/category/create',[
         'uses'=>'CategoryController@create',
         'as'=>'category.create'
@@ -42,6 +46,7 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         'uses'=> 'CategoryController@store',
         'as'=>'category.store'
     ]);
+
     Route::get('/category',[
         'uses'=>'CategoryController@index',
         'as'=>'category.home'
