@@ -83,4 +83,32 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         'uses'=>'CategoryController@destroy',
         'as'=>'category.delete'
     ]);
+
+    Route::get('/tag/create',[
+        'uses'=>'TagController@create',
+        'as'=>'tag.create'
+    ]);
+    Route::post('/tag/store',[
+        'uses'=>'TagController@store',
+        'as'=>'tag.store'
+    ]);
+    Route::get('/tag/',[
+        'uses'=>'TagController@index',
+        'as'=>'tag.home'
+    ]);
+
+    Route::get('/tag/edit/{id}',[
+        'uses'=>'TagController@edit',
+        'as'=>'tag.edit'
+    ]);
+
+    Route::get('/tag/delete/{id}',[
+        'uses'=>'TagController@destroy',
+        'as'=>'tag.delete'
+    ]);
+    Route::post('/tag/update/{id}',[
+        'uses'=>'TagController@update',
+        'as'=>'tag.update'
+    ]);
+
 });

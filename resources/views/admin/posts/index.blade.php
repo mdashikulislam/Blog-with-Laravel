@@ -27,6 +27,10 @@
 
                             </tr>
                         @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No Post Here</td>
+                        </tr>
                     @endif
                 </tbody>
             </table>

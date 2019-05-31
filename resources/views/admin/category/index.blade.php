@@ -16,19 +16,23 @@
                 </thead>
                 <tbody>
                 @if($categorys->count() > 0)
-                @foreach($categorys as $result)
-                    <tr>
-                        <td>{{$result->name}}</td>
-                        <td>
-                            <a href="{{route('category.edit',['id'=> $result->id])}}" class="btn btn-info">Edit</a>
+                    @foreach($categorys as $result)
+                        <tr>
+                            <td>{{$result->name}}</td>
+                            <td>
+                                <a href="{{route('category.edit',['id'=> $result->id])}}" class="btn btn-info">Edit</a>
 
-                        </td>
-                        <td>
-                            <a href="{{route('category.delete',['id'=>$result->id])}}" class="btn badge-danger msg">Delete</a>
-                        </td>
-                    </tr>
-                @endforeach
-                    @endif
+                            </td>
+                            <td>
+                                <a href="{{route('category.delete',['id'=>$result->id])}}" class="btn badge-danger msg">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                 @else
+                     <tr>
+                         <td colspan="3" style="text-align: center;">No Publish Category</td>
+                     </tr>
+                @endif
                 </tbody>
             </table>
         </div>

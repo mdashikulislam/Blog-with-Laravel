@@ -108,6 +108,14 @@
 
                                     <a href="{{route('category.home')}}" class="btn btn-primary">View All Category</a>
                                 </li>
+                                <li class="list-group-item">
+
+                                    <a href="{{route('tag.create')}}" class="btn btn-primary">Create Tag</a>
+                                </li>
+                                <li class="list-group-item">
+
+                                    <a href="{{route('tag.home')}}" class="btn btn-primary">View Tag</a>
+                                </li>
                             </ul>
                         </div>
                     @endif

@@ -27,6 +27,10 @@
 
                         </tr>
                     @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" style="text-align: center;">No Trash Post</td>
+                    </tr>
                 @endif
                 </tbody>
             </table>
