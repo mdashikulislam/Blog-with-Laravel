@@ -46,6 +46,14 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         'uses'=>'PostController@restore',
         'as'=>'post.restore'
     ]);
+    Route::get('/post/edit/{id}',[
+        'uses'=>'PostController@edit',
+        'as'=>'post.edit'
+    ]);
+    Route::post('/post/update/{id}',[
+        'uses'=>'PostController@update',
+        'as'=>'post.update'
+    ]);
     Route::get('/post/delete/{id}',[
         'uses'=>'PostController@destroy',
         'as'=>'post.delete'

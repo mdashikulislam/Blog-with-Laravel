@@ -21,7 +21,7 @@
                                 <td><img src="{{$post->featured}}" alt="{{$post->title}}" width="90px" height="50px"></td>
                                 <td>{{$post->title}}</td>
                                 <td>
-                                    <a href="" class="btn btn-info">Edit</a>
+                                    <a href="{{route('post.edit',['id'=>$post->id])}}" class="btn btn-info">Edit</a>
                                     <a href="{{route('post.delete',['id'=>$post->id])}}" class="btn btn-danger">Trash</a>
                                 </td>
 
